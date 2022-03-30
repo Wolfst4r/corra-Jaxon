@@ -11,18 +11,17 @@ function setup() {
     createCanvas(400, 400);
 
     // Movendo o fundo 
-    path= createSprite (200,200);
-    path.addImage (pathImg);
-    
-    path.scale=1.2;
+    path = createSprite(200, 200);
+    path.addImage(pathImg);
+
+    path.scale = 1.2;
 
 
     //Criando menino que corre 
-    boy = createSprite(20, 380, 30, 30); 
+    boy = createSprite(20, 380, 30, 30);
     boy.addAnimation("running", boyImg);
-    // boy.addAnimation("Runner-1.png", "Runner-2.png"); 
-   boy.addAnimation()
-   boy.scale= 0.07;
+    boy.addAnimation()
+    boy.scale = 0.07;
 
     // Criando Boundary (Limite) esquerdo  
     leftBoundary = createSprite(0, 0, 100, 800);
@@ -35,24 +34,24 @@ function setup() {
 
 function draw() {
     background(0);
-   
+
     // Menino se movendo no eixo X com o mouse
     boy.x = World.mouseX;
-    
+
     edges = createEdgeSprites();
     boy.collide(edges[3]);
-    boy.collide (rightBoundary);
-    boy.collide (leftBoundary);
+    boy.collide(rightBoundary);
+    boy.collide(leftBoundary);
 
     //Reiniciar o fundo
     path.velocityY = 4;
-    console.log (path.y);
+    console.log(path.y);
 
-    if (path.y > 400){
-        path.y = path.height/8;
+    if (path.y > 400) {
+        path.y = path.height / 8;
     }
 
-    
+
     drawSprites();
 
 }
